@@ -19,6 +19,17 @@ const calculateTip = () => {
 
         error.style.display = "block";
         hideError();
+    } else if(isNaN(bill)) {
+        error.innerHTML = "Please enter a number!"
+        error.style.display = "block";
+        hideError();
+    } else {
+        let tipAmount = bill * rate;
+        tipAmount = Math.ceil(tipAmount);
+        tip.innerHTML = `Tip: $ ${tipAmount}`;
+
+        let totalBill = Number(bill) + tipAmount;
+        total.innerHTML = `Total bill: $${totalBill}`;
     }
 };
 
